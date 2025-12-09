@@ -28,8 +28,6 @@ Le site est développé avec **Next.js 16** et utilise **Tailwind CSS** pour le 
 
 Le portfolio est accessible ici : **[Mon Portfolio]([https://mathieu-pernot.vercel.app/])**
 
-*(Le site sera bientôt en ligne !)*
-
 ---
 
 ## Développement local
