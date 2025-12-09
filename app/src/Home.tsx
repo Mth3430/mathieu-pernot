@@ -245,25 +245,25 @@ export function SkillsSection() {
 const languages = [
   {
     name: "Français",
-    flag: "flags/france.png",
+    flag: "Flags/france.png",
     level: "Natif",
     context: "Langue maternelle",
   },
   {
     name: "Anglais",
-    flag: "flags/uk.png",
+    flag: "Flags/uk.png",
     level: "C1",
     context: "Appris à l’école et utilisé dans les projets internationaux",
   },
   {
     name: "Espagnol",
-    flag: "flags/spain.png",
+    flag: "Flags/spain.png",
     level: "B1",
     context: "Cours universitaires et voyages en Espagne",
   },
   {
     name: "Polonais",
-    flag: "flags/poland.png",
+    flag: "Flags/poland.png",
     level: "A1",
     context: "Erasmus en Pologne",
   },
