@@ -190,7 +190,7 @@ export function SkillsSection() {
   const skills = [
     { name: "React", level: 85, color: "bg-green-500", image: "icons/React-icon.png" },
     { name: "Javascript, Typescript", level: 80, color: "bg-green-500", image: "icons/JavaScript_logo.png" },
-    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "/icons/c_logo.png" },
+    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "/icons/c_logo.png"}, 
     { name: "PHP", level: 75, color: "bg-green-500", image: "icons/PHP_logo.png" },
     { name: "Flutter", level: 65, color: "bg-orange-500", image: "icons/Flutter_logo.png" },
     { name: "Unity, Unreal", level: 65, color: "bg-orange-500", image: "icons/unity_logo.png" },
