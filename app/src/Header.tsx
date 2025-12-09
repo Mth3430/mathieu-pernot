@@ -78,10 +78,10 @@ export default function Header() {
           {/* STAGE */}
           <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="/stage"
+              href="/erasmus"
               className="hover:text-blue-500 transition flash-hover px-2 py-1 rounded"
             >
-              Stage
+              erasmus
             </Link>
           </motion.div>
 
