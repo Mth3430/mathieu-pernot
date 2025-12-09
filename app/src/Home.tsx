@@ -190,11 +190,11 @@ export function SkillsSection() {
   const skills = [
     { name: "React", level: 85, color: "bg-green-500", image: "icons/React-icon.png" },
     { name: "Javascript, Typescript", level: 80, color: "bg-green-500", image: "icons/JavaScript_logo.png" },
-    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "/icons/c_logo.png"}, 
+    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "icons/c_logo.png"}, 
     { name: "PHP", level: 75, color: "bg-green-500", image: "icons/PHP_logo.png" },
     { name: "Flutter", level: 65, color: "bg-orange-500", image: "icons/Flutter_logo.png" },
     { name: "Unity, Unreal", level: 65, color: "bg-orange-500", image: "icons/unity_logo.png" },
-    { name: "Git, GitHub", level: 90, color: "bg-green-500", image: "/icons/git_logo.png" },
+    { name: "Git, GitHub", level: 90, color: "bg-green-500", image: "icons/git_logo.png" },
     { name: "PostGreSQL", level: 50, color: "bg-red-500", image: "icons/Postgresql_logo.png" },
     { name: "Docker", level: 60, color: "bg-orange-500", image: "icons/docker_logo.png" },
 
@@ -245,25 +245,25 @@ export function SkillsSection() {
 const languages = [
   {
     name: "Français",
-    flag: "/flags/france.png",
+    flag: "flags/france.png",
     level: "Natif",
     context: "Langue maternelle",
   },
   {
     name: "Anglais",
-    flag: "/flags/uk.png",
+    flag: "flags/uk.png",
     level: "C1",
     context: "Appris à l’école et utilisé dans les projets internationaux",
   },
   {
     name: "Espagnol",
-    flag: "/flags/spain.png",
+    flag: "flags/spain.png",
     level: "B1",
     context: "Cours universitaires et voyages en Espagne",
   },
   {
     name: "Polonais",
-    flag: "/flags/poland.png",
+    flag: "flags/poland.png",
     level: "A1",
     context: "Erasmus en Pologne",
   },
