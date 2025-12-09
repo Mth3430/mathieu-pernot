@@ -22,22 +22,27 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr">
-      <Header />
-      <main className="pt-20">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          style={{
-            backgroundImage: "url('/background.png')",
-            backgroundSize: "contain",
-            backgroundRepeat: "repeat",
-            backgroundPosition: "center",
-          }}
-        >
-          {children}
-        </body>
-      </main>
-    </html>
+<html lang="fr">
+  <body
+    className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+    style={{
+      backgroundImage: "url('/background.png')",
+      backgroundSize: "contain",
+      backgroundRepeat: "repeat",
+      backgroundPosition: "center",
+    }}
+  >
+    <Header />
+    
+    <main className="pt-20 flex-1">
+      {children}
+    </main>
+
+    <footer className="text-center py-6 text-gray-500">
+      © 2025 Pernot Mathieu
+    </footer>
+  </body>
+</html>
   );
 }
 
