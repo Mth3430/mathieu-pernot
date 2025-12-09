@@ -190,11 +190,11 @@ export function SkillsSection() {
   const skills = [
     { name: "React", level: 85, color: "bg-green-500", image: "icons/React-icon.png" },
     { name: "Javascript, Typescript", level: 80, color: "bg-green-500", image: "icons/JavaScript_logo.png" },
-    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "/icons/C_logo.png" },
+    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "/icons/c_logo.png" },
     { name: "PHP", level: 75, color: "bg-green-500", image: "icons/PHP_logo.png" },
     { name: "Flutter", level: 65, color: "bg-orange-500", image: "icons/Flutter_logo.png" },
     { name: "Unity, Unreal", level: 65, color: "bg-orange-500", image: "icons/unity_logo.png" },
-    { name: "Git, GitHub", level: 90, color: "bg-green-500", image: "/icons/Git_logo.png" },
+    { name: "Git, GitHub", level: 90, color: "bg-green-500", image: "/icons/git_logo.png" },
     { name: "PostGreSQL", level: 50, color: "bg-red-500", image: "icons/Postgresql_logo.png" },
     { name: "Docker", level: 60, color: "bg-orange-500", image: "icons/docker_logo.png" },
 
@@ -221,7 +221,7 @@ export function SkillsSection() {
           >
             <div className="flex justify-between mb-1 text-sm font-medium text-gray-800">
               <div className="flex items-center gap-2">
-                <img src={skill.image} alt={skill.name} className="w-5 h-5" />
+                <Image src={skill.image} alt={skill.name} className="w-5 h-5" />
                 <span>{skill.name}</span>
               </div>
               <span>{skill.level}%</span>
