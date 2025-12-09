@@ -105,7 +105,7 @@ export default function Portfolio() {
               boxShadow: "0px 0px 15px rgba(59,130,246,0.6)",
             }}
             whileTap={{ scale: 0.95 }}
-            href="https://linkedin.com/in/TON_LINKEDIN"
+            href="linkedin.com/in/mathieu-pernot"
             target="_blank"
             className="px-6 py-2 rounded-xl bg-gray-900 text-white font-medium shadow flex items-center gap-2"
           >
@@ -123,7 +123,7 @@ export default function Portfolio() {
               boxShadow: "0px 0px 15px rgba(100,100,100,0.5)",
             }}
             whileTap={{ scale: 0.95 }}
-            href="https://github.com/TON_GITHUB"
+            href="https://github.com/Mth3430"
             target="_blank"
             className="px-6 py-2 rounded-xl bg-gray-900 text-white font-medium shadow flex items-center gap-2"
           >
@@ -170,7 +170,7 @@ export default function Portfolio() {
           </motion.a>
         </div>
       </motion.section>
-      <div className="h-75">
+      <div className="h-70">
       </div>
       {/* SKILLS */}
       <SkillsSection />
@@ -190,11 +190,11 @@ export function SkillsSection() {
   const skills = [
     { name: "React", level: 85, color: "bg-green-500", image: "icons/React-icon.png" },
     { name: "Javascript, Typescript", level: 80, color: "bg-green-500", image: "icons/JavaScript_logo.png" },
-    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "icons/C_logo.png" },
+    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "icons/c_logo.png" },
     { name: "PHP", level: 75, color: "bg-green-500", image: "icons/PHP_logo.png" },
     { name: "Flutter", level: 65, color: "bg-orange-500", image: "icons/Flutter_logo.png" },
     { name: "Unity, Unreal", level: 65, color: "bg-orange-500", image: "icons/unity_logo.png" },
-    { name: "Git, GitHub", level: 90, color: "bg-green-500", image: "icons/Git_logo.png" },
+    { name: "Git, GitHub", level: 90, color: "bg-green-500", image: "icons/git_logo.png" },
     { name: "PostGreSQL", level: 50, color: "bg-red-500", image: "icons/Postgresql_logo.png" },
     { name: "Docker", level: 60, color: "bg-orange-500", image: "icons/docker_logo.png" },
 
@@ -245,25 +245,25 @@ export function SkillsSection() {
 const languages = [
   {
     name: "Français",
-    flag: "/flags/France.png",
+    flag: "/flags/france.png",
     level: "Natif",
     context: "Langue maternelle",
   },
   {
     name: "Anglais",
-    flag: "/flags/UK.png",
+    flag: "/flags/uk.png",
     level: "C1",
     context: "Appris à l’école et utilisé dans les projets internationaux",
   },
   {
     name: "Espagnol",
-    flag: "/flags/Spain.png",
+    flag: "/flags/spain.png",
     level: "B1",
     context: "Cours universitaires et voyages en Espagne",
   },
   {
     name: "Polonais",
-    flag: "/flags/Poland.png",
+    flag: "/flags/poland.png",
     level: "A1",
     context: "Erasmus en Pologne",
   },
