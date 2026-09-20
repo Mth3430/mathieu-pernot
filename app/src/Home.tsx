@@ -19,9 +19,9 @@ export default function Portfolio() {
   ];
 
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-32 overflow-hidden">
+    <main className="relative h-screen overflow-y-scroll snap-y snap-proximity scroll-smooth">
       {/* ===== IMAGES FLOTTANTES DÉCORATIVES ===== */}
-      <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none hidden md:block">
+      <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none hidden md:block">
         {floatingImages.map((img, i) => {
           const direction = i % 2 === 0 ? 360 : -360; // 👈 sens aléatoire gauche / droite
 
@@ -45,6 +45,8 @@ export default function Portfolio() {
           );
         })}
       </div>
+      {/* ===== PAGE 1 : HERO + CONTACT ===== */}
+      <div className="h-screen w-full snap-start flex flex-col items-center justify-center px-6">
       {/* ===== HERO SECTION ===== */}
       <section className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-5xl w-full mx-auto text-center md:text-left">
 
@@ -110,7 +112,7 @@ export default function Portfolio() {
             className="px-6 py-2 rounded-xl bg-gray-900 text-white font-medium shadow flex items-center gap-2"
           >
             <img
-              src="icons/linkedin-white.png"
+              src="/icons/linkedin-white.png"
               alt="LinkedIn"
               className="w-5 h-5 object-contain"
             />
@@ -128,7 +130,7 @@ export default function Portfolio() {
             className="px-6 py-2 rounded-xl bg-gray-900 text-white font-medium shadow flex items-center gap-2"
           >
             <img
-              src="icons/github-white.png"
+              src="/icons/github-white.png"
               alt="github"
               className="w-5 h-5 object-contain"
             />
@@ -145,7 +147,7 @@ export default function Portfolio() {
             className="px-6 py-2 rounded-xl bg-gray-900 text-white font-medium shadow flex items-center gap-2"
           >
             <img
-              src="icons/mail.png"
+              src="/icons/mail.png"
               alt="Mail"
               className="w-5 h-5 object-contain"
             />
@@ -162,7 +164,7 @@ export default function Portfolio() {
             className="px-6 py-2 rounded-xl bg-gray-900 text-white font-medium shadow flex items-center gap-2"
           >
             <img
-              src="icons/document.png"
+              src="/icons/document.png"
               alt="CV"
               className="w-5 h-5 object-contain"
             />
@@ -170,7 +172,6 @@ export default function Portfolio() {
           </motion.a>
         </div>
       </motion.section>
-      <div className="h-70">
       </div>
       {/* SKILLS */}
       <SkillsSection />
@@ -187,56 +188,61 @@ export function SkillsSection() {
     threshold: 0.4,
   });
 
+  // 👉 Pour ajouter/modifier une compétence, édite juste cette liste.
+  // "category" détermine dans quelle grille elle apparaît (une nouvelle
+  // valeur de "category" crée automatiquement une nouvelle grille).
   const skills = [
-    { name: "React", level: 85, color: "bg-green-500", image: "icons/React-icon.png" },
-    { name: "Javascript, Typescript", level: 80, color: "bg-green-500", image: "icons/JavaScript_logo.png" },
-    { name: "C, C#, C++", level: 90, color: "bg-green-500", image: "icons/c_Logo.png"}, 
-    { name: "PHP", level: 75, color: "bg-green-500", image: "icons/PHP_logo.png" },
-    { name: "Flutter", level: 65, color: "bg-orange-500", image: "icons/Flutter_logo.png" },
-    { name: "Unity, Unreal", level: 65, color: "bg-orange-500", image: "icons/unity_logo.png" },
-    { name: "Git, GitHub", level: 90, color: "bg-green-500", image: "icons/git_Logo.png" },
-    { name: "PostGreSQL", level: 50, color: "bg-red-500", image: "icons/Postgresql_logo.png" },
-    { name: "Docker", level: 60, color: "bg-orange-500", image: "icons/docker_logo.png" },
-
+    { name: "React", image: "/icons/React-icon.png", category: "Code" },
+    { name: "Javascript, Typescript", image: "/icons/JavaScript_logo.png", category: "Code" },
+    { name: "C, C#, C++", image: "/icons/c_Logo.png", category: "Code" },
+    { name: "PHP", image: "/icons/PHP_logo.png", category: "Code" },
+    { name: "Git, GitHub", image: "/icons/git_Logo.png", category: "Outils" },
+    { name: "Flutter", image: "/icons/Flutter_logo.png", category: "Code" },
+    { name: "Unity, Unreal", image: "/icons/unity_logo.png", category: "Jeu vidéo" },
+    { name: "PostGreSQL", image: "/icons/Postgresql_logo.png", category: "Base de données" },
+    { name: "Docker", image: "/icons/docker_logo.png", category: "Outils" },
   ];
 
+  const categories = Array.from(new Set(skills.map((skill) => skill.category)));
+
   return (
-    <section ref={ref} className="mt-24 w-full max-w-xl mx-auto min-h-[300px]">
+    <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto snap-start flex flex-col items-center justify-center px-6">
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
-        <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+        <h2 className="text-4xl font-semibold mb-12 text-center text-gray-800">
           Mes compétences
         </h2>
 
-        {skills.map((skill, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-            className="mb-5"
-          >
-            <div className="flex justify-between mb-1 text-sm font-medium text-gray-800">
-              <div className="flex items-center gap-2">
-                <Image src={skill.image} alt={skill.name} className="w-5 h-5" />
-                <span>{skill.name}</span>
+        <div className="space-y-12">
+          {categories.map((category) => (
+            <div key={category}>
+              <h3 className="text-2xl font-semibold mb-6 text-gray-700">
+                {category}
+              </h3>
+              <div className="flex flex-wrap gap-4">
+                {skills
+                  .filter((skill) => skill.category === category)
+                  .map((skill, i) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
+                      transition={{ duration: 0.6, delay: i * 0.15 }}
+                      className="flex flex-col items-center justify-center gap-2 w-32 px-2 py-4 rounded-xl border border-gray-200 bg-white/10 shadow-sm hover:shadow-md transition-shadow"
+                    >
+                      <Image src={skill.image} alt={skill.name} width={48} height={48} className="w-12 h-12 object-contain" />
+                      <span className="text-base font-medium text-gray-800 text-center">
+                        {skill.name}
+                      </span>
+                    </motion.div>
+                  ))}
               </div>
-              <span>{skill.level}%</span>
             </div>
-
-            <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
-                transition={{ duration: 1.2, ease: "easeOut" }}
-                className={`${skill.color} h-3 rounded-full`}
-              />
-            </div>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </motion.div>
     </section>
   );
@@ -245,25 +251,25 @@ export function SkillsSection() {
 const languages = [
   {
     name: "Français",
-    flag: "Flags/france.png",
+    flag: "/Flags/france.png",
     level: "Natif",
     context: "Langue maternelle",
   },
   {
     name: "Anglais",
-    flag: "Flags/uk.png",
+    flag: "/Flags/uk.png",
     level: "C1",
     context: "Appris à l’école et utilisé dans les projets internationaux",
   },
   {
     name: "Espagnol",
-    flag: "Flags/spain.png",
+    flag: "/Flags/spain.png",
     level: "B1",
     context: "Cours universitaires et voyages en Espagne",
   },
   {
     name: "Polonais",
-    flag: "Flags/poland.png",
+    flag: "/Flags/poland.png",
     level: "A1",
     context: "Erasmus en Pologne",
   },
@@ -276,7 +282,7 @@ export function LanguagesSection() {
   });
   return (
 
-    <section ref={ref} className="mt-24 w-full max-w-5xl mx-auto text-center">
+    <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto snap-start flex flex-col items-center justify-center px-6 text-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
