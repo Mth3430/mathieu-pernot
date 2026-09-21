@@ -53,11 +53,13 @@ const featuredProject = {
     "HUD custom dessiné entièrement en code (arc de vie/stamina/armure, inventaire, munitions, BP)",
     "Système de cooldown sur la construction/destruction avec visuel circulaire",
     "Multijoueur complet avec synchronisation réseau (Rpc.Broadcast, Rpc.Owner, [Sync])",
-    "Worldmodel/viewmodel séparés par joueur",
     "Vote de map en fin de partie",
   ],
   tech: ["S&box", "C#", "Architecture composant", "Réseau peer-to-peer (Network API)"],
-  images: [] as string[],
+  images: [
+    { src: "/image2.png", width: 673, height: 622 },
+    { src: "/image3.png", width: 2460, height: 836 },
+  ],
 };
 
 export default function ProjetsPage() {
@@ -183,15 +185,15 @@ export default function ProjetsPage() {
             </div>
 
             {featuredProject.images.length > 0 && (
-              <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                {featuredProject.images.map((src) => (
+              <div className="mt-6 flex flex-col gap-3">
+                {featuredProject.images.map((img) => (
                   <Image
-                    key={src}
-                    src={src}
+                    key={img.src}
+                    src={img.src}
                     alt={featuredProject.name}
-                    width={200}
-                    height={140}
-                    className="rounded-lg object-cover w-full h-28"
+                    width={img.width}
+                    height={img.height}
+                    className="rounded-lg w-full max-w-[317px] h-auto"
                   />
                 ))}
               </div>

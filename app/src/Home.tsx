@@ -191,31 +191,33 @@ export function SkillsSection() {
   // valeur de "category" crée automatiquement une nouvelle grille.
   const skills = [
     // Front-End
-    { name: "React, Vue.js", image: "/icons/react-vue_logo.png", category: "Front-End" },
+    { name: "React", image: "/icons/react-icon.png", category: "Front-End" },
+    { name: "Vue.js", image: "/icons/vue.png", category: "Front-End" },
     { name: "Flutter", image: "/icons/Flutter_logo.png", category: "Front-End" },
-    { name: "HTML, CSS, JavaScript", image: "/icons/html-css-js_logo.png", category: "Front-End" },
+    { name: "HTML, CSS", image: "/icons/html-css.png", category: "Front-End" },
+    { name: "JavaScript", image: "/icons/JavaScript_logo.png", category: "Front-End" },
 
     // Back-End
     { name: "PHP", image: "/icons/PHP_logo.png", category: "Back-End" },
-    { name: "Java, Spring Boot", image: "/icons/java-spring_logo.png", category: "Back-End" },
-    { name: "Python 3", image: "/icons/python_logo.png", category: "Back-End" },
+    { name: "Java, Spring Boot", image: "/icons/java.png", category: "Back-End" },
+    { name: "Python 3", image: "/icons/Python-logo.png", category: "Back-End" },
     { name: "C / C++ / C#", image: "/icons/c_Logo.png", category: "Back-End" },
-    { name: "SQL", image: "/icons/sql_logo.png", category: "Back-End" },
+    { name: "SQL", image: "/icons/Sql.png", category: "Back-End" },
 
     // Outils & méthodes
     { name: "Git, GitHub", image: "/icons/git_Logo.png", category: "Outils & méthodes" },
-    { name: "Linux", image: "/icons/linux_logo.png", category: "Outils & méthodes" },
+    { name: "Linux", image: "/icons/tux.png", category: "Outils & méthodes" },
     { name: "Docker", image: "/icons/docker_logo.png", category: "Outils & méthodes" },
-    { name: "CI/CD", image: "/icons/cicd_logo.png", category: "Outils & méthodes" },
-    { name: "API REST", image: "/icons/api-rest_logo.png", category: "Outils & méthodes" },
-    { name: "Tests unitaires", image: "/icons/tests_logo.png", category: "Outils & méthodes" },
-    { name: "Agile / Scrum", image: "/icons/agile-scrum_logo.png", category: "Outils & méthodes" },
-    { name: "DevOps", image: "/icons/devops_logo.png", category: "Outils & méthodes" },
+    { name: "CI/CD", image: "/icons/ci-cd.png", category: "Outils & méthodes" },
+    { name: "API REST", image: "/icons/rest.png", category: "Outils & méthodes" },
+    { name: "Tests unitaires", image: "/icons/unitaire.png", category: "Outils & méthodes" },
+    { name: "Agile / Scrum", image: "/icons/agile.png", category: "Outils & méthodes" },
+    { name: "DevOps", image: "/icons/DevOps.png", category: "Outils & méthodes" },
 
     // Game dev
     { name: "Unity", image: "/icons/unity_logo.png", category: "Game dev" },
-    { name: "Unreal Engine", image: "/icons/unreal_logo.png", category: "Game dev" },
-    { name: "Source 2 (S&box)", image: "/icons/sbox_logo.png", category: "Game dev" },
+    { name: "Unreal Engine", image: "/icons/ue5.png", category: "Game dev" },
+    { name: "Source 2 (S&box)", image: "/icons/s2.png", category: "Game dev" },
   ];
 
   const categories = Array.from(new Set(skills.map((skill) => skill.category)));
