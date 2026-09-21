@@ -25,6 +25,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
   const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -46,13 +47,13 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 bg-[#f4f6f957] shadow-md transition-transform duration-300 ${show ? "translate-y-0" : "-translate-y-full"
         }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
         {/* Ici le lien vers l'accueil */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-gray-800">
+        <Link href="/" className="flex items-center gap-2 font-bold text-lg sm:text-xl text-gray-800">
           <motion.img
             src="/moi2.png"
             alt="Logo"
-            className="w-7 h-7 rounded-2xl"
+            className="w-7 h-7 rounded-2xl shrink-0"
             animate={{ scale: [1, 1.08, 1] }}
             transition={{
               duration: 3,
@@ -64,7 +65,8 @@ export default function Header() {
           Mathieu Pernot
         </Link>
 
-        <div className="flex gap-6 text-gray-800 items-center">
+        {/* NAV DESKTOP */}
+        <div className="hidden sm:flex gap-6 text-gray-800 items-center">
           {/* PROJETS */}
           <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
@@ -108,22 +110,22 @@ export default function Header() {
                   transition={{ duration: 0.2 }}
                   onMouseLeave={() => setOpen(false)}
                   className="
-            absolute 
-            top-full 
-            mt-2 
-            bg-white 
-            shadow-lg 
-            rounded-xl 
-            p-4 
-            flex 
-            flex-col 
-            gap-3 
-            min-w-[160px] 
-            max-w-[calc(100vw-20px)] 
-            left-1/2 
+            absolute
+            top-full
+            mt-2
+            bg-white
+            shadow-lg
+            rounded-xl
+            p-4
+            flex
+            flex-col
+            gap-3
+            min-w-[160px]
+            max-w-[calc(100vw-20px)]
+            left-1/2
             -translate-x-1/2
-            sm:left-0 
-            sm:translate-x-0 
+            sm:left-0
+            sm:translate-x-0
             sm:w-48
           "
                 >
@@ -159,7 +161,68 @@ export default function Header() {
           </div>
         </div>
 
+        {/* BOUTON MENU MOBILE */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label="Menu"
+          className="sm:hidden flex flex-col justify-center items-center gap-1.5 w-8 h-8 shrink-0"
+        >
+          <span className={`block w-6 h-0.5 bg-gray-800 transition-transform ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-gray-800 transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-6 h-0.5 bg-gray-800 transition-transform ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+        </button>
       </nav>
+
+      {/* NAV MOBILE */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="sm:hidden overflow-hidden bg-[#f4f6f9] border-t border-gray-200"
+          >
+            <div className="flex flex-col px-4 py-4 gap-1 text-gray-800">
+              <Link
+                href="/projets"
+                onClick={() => setMobileOpen(false)}
+                className="px-2 py-3 rounded hover:text-blue-500 transition"
+              >
+                Projets
+              </Link>
+              <Link
+                href="/erasmus"
+                onClick={() => setMobileOpen(false)}
+                className="px-2 py-3 rounded hover:text-blue-500 transition"
+              >
+                erasmus
+              </Link>
+              <a
+                href="https://github.com/Mth3430"
+                onClick={() => setMobileOpen(false)}
+                className="px-2 py-3 rounded hover:text-blue-500 transition"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/mathieu-pernot"
+                onClick={() => setMobileOpen(false)}
+                className="px-2 py-3 rounded hover:text-blue-500 transition"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="mailto:math.pernot30@gmail.com"
+                onClick={() => setMobileOpen(false)}
+                className="px-2 py-3 rounded hover:text-blue-500 transition"
+              >
+                Me contacter
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

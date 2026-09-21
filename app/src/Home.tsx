@@ -19,7 +19,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <main className="relative h-screen overflow-y-scroll snap-y snap-proximity scroll-smooth">
+    <main className="relative">
       {/* ===== IMAGES FLOTTANTES DÉCORATIVES ===== */}
       <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none hidden md:block">
         {floatingImages.map((img, i) => {
@@ -46,7 +46,7 @@ export default function Portfolio() {
         })}
       </div>
       {/* ===== PAGE 1 : HERO + CONTACT ===== */}
-      <div className="h-screen w-full snap-start flex flex-col items-center justify-center px-6">
+      <div className="min-h-[calc(100vh-5rem)] w-full flex flex-col items-center justify-center px-6">
       {/* ===== HERO SECTION ===== */}
       <section className="flex flex-col md:flex-row items-center justify-center gap-10 max-w-5xl w-full mx-auto text-center md:text-left">
 
@@ -100,7 +100,7 @@ export default function Portfolio() {
         </motion.div>
 
         {/* BOUTONS CONTACT */}
-        <div className="flex gap-10">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-10">
           <motion.a
             whileHover={{
               scale: 1.1,
@@ -188,25 +188,40 @@ export function SkillsSection() {
     threshold: 0.4,
   });
 
-  // 👉 Pour ajouter/modifier une compétence, édite juste cette liste.
-  // "category" détermine dans quelle grille elle apparaît (une nouvelle
-  // valeur de "category" crée automatiquement une nouvelle grille).
+  // valeur de "category" crée automatiquement une nouvelle grille.
   const skills = [
-    { name: "React", image: "/icons/React-icon.png", category: "Code" },
-    { name: "Javascript, Typescript", image: "/icons/JavaScript_logo.png", category: "Code" },
-    { name: "C, C#, C++", image: "/icons/c_Logo.png", category: "Code" },
-    { name: "PHP", image: "/icons/PHP_logo.png", category: "Code" },
-    { name: "Git, GitHub", image: "/icons/git_Logo.png", category: "Outils" },
-    { name: "Flutter", image: "/icons/Flutter_logo.png", category: "Code" },
-    { name: "Unity, Unreal", image: "/icons/unity_logo.png", category: "Jeu vidéo" },
-    { name: "PostGreSQL", image: "/icons/Postgresql_logo.png", category: "Base de données" },
-    { name: "Docker", image: "/icons/docker_logo.png", category: "Outils" },
+    // Front-End
+    { name: "React, Vue.js", image: "/icons/react-vue_logo.png", category: "Front-End" },
+    { name: "Flutter", image: "/icons/Flutter_logo.png", category: "Front-End" },
+    { name: "HTML, CSS, JavaScript", image: "/icons/html-css-js_logo.png", category: "Front-End" },
+
+    // Back-End
+    { name: "PHP", image: "/icons/PHP_logo.png", category: "Back-End" },
+    { name: "Java, Spring Boot", image: "/icons/java-spring_logo.png", category: "Back-End" },
+    { name: "Python 3", image: "/icons/python_logo.png", category: "Back-End" },
+    { name: "C / C++ / C#", image: "/icons/c_Logo.png", category: "Back-End" },
+    { name: "SQL", image: "/icons/sql_logo.png", category: "Back-End" },
+
+    // Outils & méthodes
+    { name: "Git, GitHub", image: "/icons/git_Logo.png", category: "Outils & méthodes" },
+    { name: "Linux", image: "/icons/linux_logo.png", category: "Outils & méthodes" },
+    { name: "Docker", image: "/icons/docker_logo.png", category: "Outils & méthodes" },
+    { name: "CI/CD", image: "/icons/cicd_logo.png", category: "Outils & méthodes" },
+    { name: "API REST", image: "/icons/api-rest_logo.png", category: "Outils & méthodes" },
+    { name: "Tests unitaires", image: "/icons/tests_logo.png", category: "Outils & méthodes" },
+    { name: "Agile / Scrum", image: "/icons/agile-scrum_logo.png", category: "Outils & méthodes" },
+    { name: "DevOps", image: "/icons/devops_logo.png", category: "Outils & méthodes" },
+
+    // Game dev
+    { name: "Unity", image: "/icons/unity_logo.png", category: "Game dev" },
+    { name: "Unreal Engine", image: "/icons/unreal_logo.png", category: "Game dev" },
+    { name: "Source 2 (S&box)", image: "/icons/sbox_logo.png", category: "Game dev" },
   ];
 
   const categories = Array.from(new Set(skills.map((skill) => skill.category)));
 
   return (
-    <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto snap-start flex flex-col items-center justify-center px-6">
+    <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto flex flex-col items-center justify-center px-6">
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
@@ -282,7 +297,7 @@ export function LanguagesSection() {
   });
   return (
 
-    <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto snap-start flex flex-col items-center justify-center px-6 text-center">
+    <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto flex flex-col items-center justify-center px-6 text-center">
       <motion.div
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : { opacity: 0 }}
