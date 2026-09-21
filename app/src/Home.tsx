@@ -107,7 +107,7 @@ export default function Portfolio() {
               boxShadow: "0px 0px 15px rgba(59,130,246,0.6)",
             }}
             whileTap={{ scale: 0.95 }}
-            href="linkedin.com/in/mathieu-pernot"
+            href="https://www.linkedin.com/in/mathieu-pernot"
             target="_blank"
             className="px-6 py-2 rounded-xl bg-gray-900 text-white font-medium shadow flex items-center gap-2"
           >

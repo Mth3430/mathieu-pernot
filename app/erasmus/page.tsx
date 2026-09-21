@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 // 👉 Places tes photos dans public/ avec ces noms (ou change les chemins ci-dessous).
 const introImage = "/IMG5.jpg"; // vue de Cracovie ou photo d'arrivée
 const logementImage = "/shed.jpg"; // résidence étudiante, à côté du stade du Wisła Kraków
-const auschwitzImage = "/Auschwitz.jpg";
+const ogrodzieniecImage = "/widok.jpg";
 
 const galleryImages = [
   "/IMG1.jpg",
@@ -149,14 +149,15 @@ export default function ErasmusPage() {
         </ul>
 
         <p className="text-xs font-medium text-gray-400 uppercase tracking-wide mb-2">
-          Auschwitz-Birkenau
+          château d&apos;Ogrodzieniec
         </p>
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-gray-100">
+        <div className="rounded-xl overflow-hidden bg-gray-100">
           <Image
-            src={auschwitzImage}
-            alt="Visite du camp d'Auschwitz-Birkenau"
-            fill
-            className="object-cover"
+            src={ogrodzieniecImage}
+            alt="Visite de château d'Ogrodzieniec"
+            width={1200}
+            height={800}
+            className="w-full h-auto object-contain"
           />
         </div>
       </motion.div>
