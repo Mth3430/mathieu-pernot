@@ -83,7 +83,7 @@ export default function Header() {
               href="/erasmus"
               className="hover:text-blue-500 transition flash-hover px-2 py-1 rounded"
             >
-              erasmus
+              Erasmus
             </Link>
           </motion.div>
 
@@ -196,7 +196,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
                 className="px-2 py-3 rounded hover:text-blue-500 transition"
               >
-                erasmus
+                Erasmus
               </Link>
               <a
                 href="https://github.com/Mth3430"

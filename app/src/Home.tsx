@@ -191,7 +191,7 @@ export function SkillsSection() {
   // valeur de "category" crée automatiquement une nouvelle grille.
   const skills = [
     // Front-End
-    { name: "React", image: "/icons/react-icon.png", category: "Front-End" },
+    { name: "React", image: "/icons/React-icon.png", category: "Front-End" },
     { name: "Vue.js", image: "/icons/vue.png", category: "Front-End" },
     { name: "Flutter", image: "/icons/Flutter_logo.png", category: "Front-End" },
     { name: "HTML, CSS", image: "/icons/html-css.png", category: "Front-End" },
