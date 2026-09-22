@@ -251,11 +251,11 @@ export function SkillsSection() {
 
         <div className="space-y-12">
           {categories.map((category) => (
-            <div key={category}>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-700">
+            <div key={category} className="flex flex-col items-center">
+              <h3 className="text-2xl font-semibold mb-6 text-gray-700 text-center">
                 {category}
               </h3>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 {skills
                   .filter((skill) => skill.category === category)
                   .map((skill, i) => (
