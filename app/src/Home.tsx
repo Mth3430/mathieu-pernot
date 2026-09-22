@@ -2,6 +2,21 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useEffect, useState } from "react";
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  return isMobile;
+}
 
 export default function Portfolio() {
   const floatingImages = [
@@ -78,7 +93,7 @@ export default function Portfolio() {
           </h1>
           <p className="text-gray-700 max-w-md">
             Bonjour ! 
-            Je viens de terminer mes études en cinquième année à Epitech, où j’ai développé de solides compétences en travail d’équipe et un haut niveau de motivation. Mon parcours m’a permis d’acquérir une expérience variée dans plusieurs domaines, notamment les projets graphiques tels que le développement de jeux vidéo, la programmation algorithmique et le développement front-end. Je suis actuellement à la recherche de nouvelles opportunités professionnelles pour continuer à évoluer et mettre mes compétences en pratique.
+            J’ai terminé mes études en cinquième année à Epitech, où j’ai développé de solides compétences en travail d’équipe et un haut niveau de motivation. Mon parcours m’a permis d’acquérir une expérience variée dans plusieurs domaines, notamment les projets graphiques tels que le développement de jeux vidéo, la programmation algorithmique et le développement front-end. Je suis actuellement à la recherche de nouvelles opportunités professionnelles pour continuer à évoluer et mettre mes compétences en pratique.
           </p>
         </motion.div>
       </section>
@@ -187,6 +202,7 @@ export function SkillsSection() {
     triggerOnce: false,
     threshold: 0.4,
   });
+  const isMobile = useIsMobile();
 
   // valeur de "category" crée automatiquement une nouvelle grille.
   const skills = [
@@ -216,7 +232,7 @@ export function SkillsSection() {
 
     // Game dev
     { name: "Unity", image: "/icons/unity_logo.png", category: "Game dev" },
-    { name: "Unreal Engine", image: "/icons/ue5.png", category: "Game dev" },
+    { name: "Unreal Engine", image: "/icons/unreal.png", category: "Game dev" },
     { name: "Source 2 (S&box)", image: "/icons/s2.png", category: "Game dev" },
   ];
 
@@ -225,8 +241,8 @@ export function SkillsSection() {
   return (
     <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto flex flex-col items-center justify-center px-6">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : { opacity: 0 }}
+        initial={isMobile ? false : { opacity: 0 }}
+        animate={isMobile || inView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.2 }}
       >
         <h2 className="text-4xl font-semibold mb-12 text-center text-gray-800">
@@ -245,8 +261,8 @@ export function SkillsSection() {
                   .map((skill, i) => (
                     <motion.div
                       key={skill.name}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
+                      initial={isMobile ? false : { opacity: 0, y: 30 }}
+                      animate={isMobile || inView ? { opacity: 1, y: 0 } : { opacity: 0 }}
                       transition={{ duration: 0.6, delay: i * 0.15 }}
                       className="flex flex-col items-center justify-center gap-2 w-32 px-2 py-4 rounded-xl border border-gray-200 bg-white/10 shadow-sm hover:shadow-md transition-shadow"
                     >
@@ -297,12 +313,13 @@ export function LanguagesSection() {
     triggerOnce: false,
     threshold: 0.5,
   });
+  const isMobile = useIsMobile();
   return (
 
     <section ref={ref} className="min-h-screen w-full max-w-5xl mx-auto flex flex-col items-center justify-center px-6 text-center">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={inView ? { opacity: 1 } : { opacity: 0 }}
+        initial={isMobile ? false : { opacity: 0 }}
+        animate={isMobile || inView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-2xl font-semibold mb-10 text-gray-800">Langues</h2>
@@ -310,8 +327,9 @@ export function LanguagesSection() {
           {languages.map((lang, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={isMobile ? false : { opacity: 0, y: 20 }}
+              whileInView={isMobile ? undefined : { opacity: 1, y: 0 }}
+              animate={isMobile ? { opacity: 1, y: 0 } : undefined}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
               className="flex flex-col items-center justify-start rounded-xl  p-4 w-52 h-64"
